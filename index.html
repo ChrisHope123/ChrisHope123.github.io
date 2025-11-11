@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kvíz Játékkártya Kft. - Ami összehozza a társaságot</title>
+    <meta name="description" content="Játékkártyák és kártyajátékok magyar gyártótól. Egyedi kártyák, kvízjátékok és társasjátékok.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-pattern {
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.03) 35px, rgba(255,255,255,.03) 70px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- EU Logo - Fixed Bottom Right -->
+    <a href="eu-tamogatas.html" class="fixed bottom-8 right-8 z-40 hover:scale-105 transition-transform duration-300 shadow-2xl" title="Európai Uniós támogatás">
+        <img src="assets/images/263679109_313090430706036_2792129829385999363_n.jpg" alt="EU Támogatás" class="w-56 md:w-72 h-auto rounded-lg">
+    </a>
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-red-600">
+                        🃏 Kvíz Játékkártya
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#termekek" class="text-gray-700 hover:text-red-600 transition">Termékek</a>
+                    <a href="#egyedi" class="text-gray-700 hover:text-red-600 transition">Egyedi Kártya</a>
+                    <a href="#jatekszabalyok" class="text-gray-700 hover:text-red-600 transition">Játékszabályok</a>
+                    <a href="#viszonteladok" class="text-gray-700 hover:text-red-600 transition">Viszonteladóknak</a>
+                    <a href="#rolunk" class="text-gray-700 hover:text-red-600 transition">Rólunk</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-red-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#termekek" class="block px-3 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded">Termékek</a>
+                <a href="#egyedi" class="block px-3 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded">Egyedi Kártya</a>
+                <a href="#jatekszabalyok" class="block px-3 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded">Játékszabályok</a>
+                <a href="#viszonteladok" class="block px-3 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded">Viszonteladóknak</a>
+                <a href="#rolunk" class="block px-3 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded">Rólunk</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="bg-white pt-32 pb-20 border-b-4 border-red-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
+                    Üdvözöljük Webáruházunkban!
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-red-600 font-semibold">
+                    Ami összehozza a társaságot
+                </p>
+                <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto text-gray-700">
+                    Magyar gyártású játékkártyák és kártyajátékok széles választékával várjuk. 
+                    Kvízjátékok, társasjátékok és egyedi tervezésű kártyák.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#termekek" class="bg-red-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-red-700 transition transform hover:scale-105 shadow-lg">
+                        Termékek megtekintése
+                    </a>
+                    <a href="#egyedi" class="bg-white border-2 border-red-600 text-red-600 px-8 py-3 rounded-full font-semibold hover:bg-red-600 hover:text-white transition transform hover:scale-105 shadow-lg">
+                        Egyedi kártya rendelés
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Products Section -->
+    <section id="termekek" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Termékeink</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Fedezze fel játékkártyáink és kártyajátékaink változatos kínálatát
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="h-64 bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center">
+                        <div class="text-white text-6xl">🃏</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Kártyajátékok</h3>
+                        <p class="text-gray-600 mb-4">
+                            Tradicionális és modern kártyajátékok minden korosztálynak.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-red-600 font-semibold">Részletek →</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="h-64 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
+                        <div class="text-white text-6xl">🎯</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Kvízjátékok</h3>
+                        <p class="text-gray-600 mb-4">
+                            Szórakoztató és oktató kvízjátékok különböző témákban.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-red-600 font-semibold">Részletek →</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="h-64 bg-gradient-to-br from-red-600 to-gray-900 flex items-center justify-center">
+                        <div class="text-white text-6xl">🎨</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Egyedi Tervezés</h3>
+                        <p class="text-gray-600 mb-4">
+                            Személyre szabott kártyák egyedi grafikával és felirattal.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-red-600 font-semibold">Részletek →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Custom Cards Section -->
+    <section id="egyedi" class="py-20 bg-gradient-to-br from-gray-50 to-red-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Egyedi Kártya Gyártás</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Rendeljen egyedi játékkártyákat saját grafikával, logóval vagy üzenettel. 
+                        Tökéletes ajándéknak, céges rendezvényekre vagy promóciós célokra.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-red-600 mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700">Teljes mértékben testreszabható design</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-red-600 mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700">Professzionális nyomdai minőség</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-red-600 mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700">Rugalmas mennyiségi lehetőségek</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-red-600 mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700">Magyar gyártás és minőség</span>
+                        </li>
+                    </ul>
+                    <a href="#kapcsolat" class="inline-block bg-red-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-red-700 transition transform hover:scale-105">
+                        Ajánlatot kérek
+                    </a>
+                </div>
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-red-500 to-gray-900 rounded-lg shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition">
+                        <div class="bg-white rounded-lg p-12 flex items-center justify-center">
+                            <div class="text-8xl">🎴</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Game Rules Section -->
+    <section id="jatekszabalyok" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Játékszabályok</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Ismerje meg játékaink szabályait és kezdjen el játszani még ma!
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-br from-red-50 to-gray-50 rounded-lg p-8 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-600 text-white rounded-full p-3 mr-4">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                                <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Klasszikus Kártyajátékok</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        Fedezze fel a hagyományos magyar és nemzetközi kártyajátékok szabályait. 
+                        Részletes leírások kezdőknek és haladóknak egyaránt.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gray-50 to-red-50 rounded-lg p-8 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gray-900 text-white rounded-full p-3 mr-4">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Kvíz és Oktatójátékok</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        Szórakoztató kvízjátékok szabályai, amelyek nemcsak játékot, 
+                        hanem tanulási lehetőséget is kínálnak minden korosztálynak.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resellers Section -->
+    <section id="viszonteladok" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-12 bg-gradient-to-br from-red-600 to-gray-900 text-white">
+                        <h2 class="text-4xl font-bold mb-6">Viszonteladóknak</h2>
+                        <p class="text-xl mb-8 text-red-100">
+                            Csatlakozzon partnereinK köréhez és forgalmazza terméKeinKet!
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 mr-3 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Kedvező nagykereskedelmi árak</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 mr-3 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Marketing támogatás</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 mr-3 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Gyors szállítás és készletkezelés</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 mr-3 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Dedikált ügyfélszolgálat</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-12 bg-white">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Érdeklődési űrlap</h3>
+                        <form id="reseller-form" class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Cégnév *</label>
+                                <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Email *</label>
+                                <input type="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Telefon *</label>
+                                <input type="tel" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Üzenet</label>
+                                <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition">
+                                Küldés
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="rolunk" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Rólunk</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    A Kvíz Játékkártya Kft. magyar családi vállalkozás, amely több évtizedes tapasztalattal rendelkezik a játékkártyák gyártásában és forgalmazásában.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="text-center">
+                    <div class="bg-red-100 text-red-600 rounded-full w-20 h-20 flex items-center justify-center text-3xl mx-auto mb-4">
+                        🏭
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Magyar Gyártás</h3>
+                    <p class="text-gray-600">
+                        Büszkék vagyunk arra, hogy termékeink Magyarországon készülnek a legmagasabb minőségi elvárásoknak megfelelően.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-red-100 text-red-600 rounded-full w-20 h-20 flex items-center justify-center text-3xl mx-auto mb-4">
+                        ⭐
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Kiváló Minőség</h3>
+                    <p class="text-gray-600">
+                        Professzionális nyomdai technológiával és tartós anyagokkal készítjük kártyáinkat.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-red-100 text-red-600 rounded-full w-20 h-20 flex items-center justify-center text-3xl mx-auto mb-4">
+                        🤝
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Megbízható Partner</h3>
+                    <p class="text-gray-600">
+                        Több száz elégedett ügyfél és viszonteladó bizalma kíséri munkánkat.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-br from-gray-50 to-red-50 rounded-2xl p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">Európai Uniós Támogatás</h3>
+                        <p class="text-gray-700 mb-4">
+                            Cégünk több sikeres EU-s pályázatot is megvalósított, többek között az 
+                            "Elektromos energiaigény kiváltása zöldarammal" projektet.
+                        </p>
+                        <p class="text-gray-700">
+                            Elkötelezettek vagyunk a fenntartható fejlődés és a környezetvédelem mellett.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg p-8 shadow-lg">
+                        <div class="text-6xl text-center mb-4">🌱</div>
+                        <p class="text-center text-gray-600 font-semibold">
+                            Zöld energia • Fenntartható gyártás
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-gradient-to-br from-red-600 to-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">Iratkozzon fel hírlevelünkre!</h2>
+            <p class="text-xl mb-8 text-red-100">
+                Legyen naprakész az újdonságokkal, akciókkal és exkluzív ajánlatainkkal!
+            </p>
+            <form id="newsletter-form" class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+                <input 
+                    type="email" 
+                    placeholder="Email címe" 
+                    required
+                    class="flex-1 px-6 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                >
+                <button 
+                    type="submit" 
+                    class="bg-white text-red-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition transform hover:scale-105"
+                >
+                    Feliratkozás
+                </button>
+            </form>
+            <p class="text-sm text-red-100 mt-4">
+                A feliratkozással elfogadja az adatkezelési tájékoztatónkat.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="kapcsolat" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Kapcsolat</h2>
+                <p class="text-xl text-gray-600">
+                    Állunk rendelkezésére! Vegye fel velünk a kapcsolatot bizalommal.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Elérhetőségeink</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-red-600 mt-1 mr-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <p class="font-semibold text-gray-900">Cím</p>
+                                <p class="text-gray-600">Kvíz Játékkártya Kft.<br>Magyarország</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-red-600 mt-1 mr-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                            </svg>
+                            <div>
+                                <p class="font-semibold text-gray-900">Email</p>
+                                <p class="text-gray-600">info@jatekkartya.hu</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-red-600 mt-1 mr-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                            <div>
+                                <p class="font-semibold text-gray-900">Telefon</p>
+                                <p class="text-gray-600">+36 XX XXX XXXX</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Üzenet küldése</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Név *</label>
+                            <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Email *</label>
+                            <input type="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Üzenet *</label>
+                            <textarea rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition">
+                            Küldés
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">🃏 Kvíz Játékkártya</h3>
+                    <p class="text-gray-400">
+                        Ami összehozza a társaságot
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Menü</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#termekek" class="hover:text-white transition">Termékek</a></li>
+                        <li><a href="#egyedi" class="hover:text-white transition">Egyedi Kártya</a></li>
+                        <li><a href="#jatekszabalyok" class="hover:text-white transition">Játékszabályok</a></li>
+                        <li><a href="#viszonteladok" class="hover:text-white transition">Viszonteladóknak</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Információ</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#rolunk" class="hover:text-white transition">Rólunk</a></li>
+                        <li><a href="#kapcsolat" class="hover:text-white transition">Kapcsolat</a></li>
+                        <li><a href="#" class="hover:text-white transition">ÁSZF</a></li>
+                        <li><a href="#" class="hover:text-white transition">Adatvédelem</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Kövessen minket</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-800 hover:bg-red-600 p-3 rounded-full transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-red-600 p-3 rounded-full transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Kvíz Játékkártya Kft. Minden jog fenntartva.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-red-600 text-white p-4 rounded-full shadow-lg hover:bg-red-700 transition transform hover:scale-110 hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+    
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
