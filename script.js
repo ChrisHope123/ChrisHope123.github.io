@@ -14,6 +14,98 @@ mobileMenuLinks.forEach(link => {
     });
 });
 
+// Hero Carousel
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const dots = document.querySelectorAll('.carousel-dot');
+const prevButton = document.getElementById('carousel-prev');
+const nextButton = document.getElementById('carousel-next');
+let autoplayInterval;
+
+function showSlide(n) {
+    // Hide all slides
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+        slide.classList.add('opacity-0');
+    });
+    
+    // Remove active state from all dots
+    dots.forEach(dot => {
+        dot.classList.remove('active', 'bg-white');
+        dot.classList.add('bg-opacity-50');
+    });
+    
+    // Wrap around if necessary
+    if (n >= slides.length) {
+        currentSlide = 0;
+    } else if (n < 0) {
+        currentSlide = slides.length - 1;
+    } else {
+        currentSlide = n;
+    }
+    
+    // Show current slide
+    slides[currentSlide].classList.add('active');
+    slides[currentSlide].classList.remove('opacity-0');
+    
+    // Highlight current dot
+    dots[currentSlide].classList.add('active', 'bg-white');
+    dots[currentSlide].classList.remove('bg-opacity-50');
+}
+
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
+
+// Auto-play carousel
+function startAutoplay() {
+    autoplayInterval = setInterval(nextSlide, 10000); // Change slide every 10 seconds
+}
+
+function stopAutoplay() {
+    clearInterval(autoplayInterval);
+}
+
+// Event listeners for carousel controls
+if (prevButton && nextButton) {
+    prevButton.addEventListener('click', () => {
+        prevSlide();
+        stopAutoplay();
+        startAutoplay(); // Restart autoplay after manual navigation
+    });
+
+    nextButton.addEventListener('click', () => {
+        nextSlide();
+        stopAutoplay();
+        startAutoplay(); // Restart autoplay after manual navigation
+    });
+}
+
+// Event listeners for dots
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        showSlide(index);
+        stopAutoplay();
+        startAutoplay(); // Restart autoplay after manual navigation
+    });
+});
+
+// Start autoplay when page loads
+if (slides.length > 0) {
+    startAutoplay();
+    
+    // Pause autoplay when user hovers over carousel
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopAutoplay);
+        carouselContainer.addEventListener('mouseleave', startAutoplay);
+    }
+}
+
 // Smooth Scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -54,44 +146,50 @@ const contactForm = document.getElementById('contact-form');
 const resellerForm = document.getElementById('reseller-form');
 
 // Newsletter Form Handler
-newsletterForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = e.target.querySelector('input[type="email"]').value;
-    
-    // Show success message
-    alert('Köszönjük a feliratkozást! Emailt küldtünk a következő címre: ' + email);
-    e.target.reset();
-});
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = e.target.querySelector('input[type="email"]').value;
+        
+        // Show success message
+        alert('Köszönjük a feliratkozást! Emailt küldtünk a következő címre: ' + email);
+        e.target.reset();
+    });
+}
 
 // Contact Form Handler
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const formData = new FormData(e.target);
-    const name = e.target.querySelector('input[type="text"]').value;
-    const email = e.target.querySelector('input[type="email"]').value;
-    const message = e.target.querySelector('textarea').value;
-    
-    // In a real application, you would send this data to a server
-    // For now, we'll just show a success message
-    alert('Köszönjük az üzenetét! Hamarosan felvesszük Önnel a kapcsolatot.');
-    e.target.reset();
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form values
+        const formData = new FormData(e.target);
+        const name = e.target.querySelector('input[type="text"]').value;
+        const email = e.target.querySelector('input[type="email"]').value;
+        const message = e.target.querySelector('textarea').value;
+        
+        // In a real application, you would send this data to a server
+        // For now, we'll just show a success message
+        alert('Köszönjük az üzenetét! Hamarosan felvesszük Önnel a kapcsolatot.');
+        e.target.reset();
+    });
+}
 
 // Reseller Form Handler
-resellerForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const company = e.target.querySelectorAll('input[type="text"]')[0].value;
-    const email = e.target.querySelector('input[type="email"]').value;
-    const phone = e.target.querySelector('input[type="tel"]').value;
-    
-    // In a real application, you would send this data to a server
-    alert('Köszönjük érdeklődését! Kollégánk hamarosan felveszi Önnel a kapcsolatot.');
-    e.target.reset();
-});
+if (resellerForm) {
+    resellerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form values
+        const company = e.target.querySelectorAll('input[type="text"]')[0].value;
+        const email = e.target.querySelector('input[type="email"]').value;
+        const phone = e.target.querySelector('input[type="tel"]').value;
+        
+        // In a real application, you would send this data to a server
+        alert('Köszönjük érdeklődését! Kollégánk hamarosan felveszi Önnel a kapcsolatot.');
+        e.target.reset();
+    });
+}
 
 // Navbar scroll effect - add shadow on scroll
 const navbar = document.querySelector('nav');
