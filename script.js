@@ -260,8 +260,3 @@ document.querySelectorAll('img').forEach(img => {
         // e.preventDefault();
     });
 });
-
-// Console welcome message
-console.log('%c🃏 Kvíz Játékkártya Kft.', 'color: #dc2626; font-size: 24px; font-weight: bold;');
-console.log('%cAmi összehozza a társaságot', 'color: #991b1b; font-size: 16px;');
-console.log('%cWebsite created with ❤️', 'color: #ef4444; font-size: 12px;');
