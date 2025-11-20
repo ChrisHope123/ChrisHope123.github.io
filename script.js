@@ -159,19 +159,65 @@ if (newsletterForm) {
 
 // Contact Form Handler
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Get form values
-        const formData = new FormData(e.target);
-        const name = e.target.querySelector('input[type="text"]').value;
-        const email = e.target.querySelector('input[type="email"]').value;
-        const message = e.target.querySelector('textarea').value;
+        // Get submit button
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
         
-        // In a real application, you would send this data to a server
-        // For now, we'll just show a success message
-        alert('Köszönjük az üzenetét! Hamarosan felvesszük Önnel a kapcsolatot.');
-        e.target.reset();
+        // Disable button and show loading state
+        submitButton.disabled = true;
+        submitButton.textContent = 'Küldés...';
+        submitButton.classList.add('opacity-50', 'cursor-not-allowed');
+        
+        // Hide previous messages
+        const successMessage = document.getElementById('contact-success');
+        const errorMessage = document.getElementById('contact-error');
+        
+        if (successMessage) successMessage.classList.add('hidden');
+        if (errorMessage) errorMessage.classList.add('hidden');
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                if (successMessage) {
+                    successMessage.classList.remove('hidden');
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                contactForm.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    if (successMessage) successMessage.classList.add('hidden');
+                }, 5000);
+            } else {
+                if (errorMessage) {
+                    errorMessage.classList.remove('hidden');
+                    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            if (errorMessage) {
+                errorMessage.classList.remove('hidden');
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        } finally {
+            // Re-enable button and restore original text
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+            submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
     });
 }
 
