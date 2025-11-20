@@ -44,12 +44,24 @@
                     <a href="index.html#rolunk" class="text-gray-700 hover:text-red-600 transition">Rólunk</a>
                 </div>
                 
-                <!-- Back Button -->
-                <div>
-                    <a href="index.html" class="text-gray-700 hover:text-red-600 transition font-medium">
-                        ← Vissza
-                    </a>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-red-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html#termekek" class="block px-3 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded">Termékek</a>
+                <a href="egyedi-kartya.html" class="block px-3 py-2 text-red-600 font-semibold bg-red-50 rounded">Egyedi Kártya</a>
+                <a href="viszonteladoknak.html" class="block px-3 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded">Viszonteladóknak</a>
+                <a href="index.html#rolunk" class="block px-3 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded">Rólunk</a>
             </div>
         </div>
     </nav>
@@ -384,6 +396,18 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
     
 </body>
 </html>
