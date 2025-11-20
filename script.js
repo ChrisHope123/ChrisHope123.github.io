@@ -159,8 +159,17 @@ if (newsletterForm) {
 
 // Contact Form Handler
 if (contactForm) {
+    let isSubmitting = false;
+    
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        
+        // Prevent multiple submissions
+        if (isSubmitting) {
+            return;
+        }
+        
+        isSubmitting = true;
         
         // Get submit button
         const submitButton = contactForm.querySelector('button[type="submit"]');
@@ -217,6 +226,7 @@ if (contactForm) {
             submitButton.disabled = false;
             submitButton.textContent = originalButtonText;
             submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
+            isSubmitting = false;
         }
     });
 }
