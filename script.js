@@ -195,7 +195,7 @@ if (contactForm) {
             const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json; charset=utf-8',
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify(jsonData)
