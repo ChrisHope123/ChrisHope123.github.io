@@ -1,0 +1,70 @@
+name: Deploy to Azure Blob Storage
+
+# Manual trigger only
+on:
+  workflow_dispatch:
+
+# Required for OIDC authentication
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Azure Login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Upload to Azure Blob Storage
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
+            # Upload HTML files
+            az storage blob upload-batch \
+              --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
+              --destination '$web' \
+              --source . \
+              --pattern "*.html" \
+              --overwrite \
+              --auth-mode login
+            
+            # Upload JavaScript files
+            az storage blob upload-batch \
+              --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
+              --destination '$web' \
+              --source . \
+              --pattern "*.js" \
+              --overwrite \
+              --auth-mode login
+            
+            # Upload CSS files (if any)
+            az storage blob upload-batch \
+              --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
+              --destination '$web' \
+              --source . \
+              --pattern "*.css" \
+              --overwrite \
+              --auth-mode login
+            
+            # Upload assets folder (images, etc.)
+            az storage blob upload-batch \
+              --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
+              --destination '$web/assets' \
+              --source ./assets \
+              --overwrite \
+              --auth-mode login
+
+      - name: Deployment Summary
+        run: |
+          echo "✅ Deployment completed successfully!"
+          echo "🌐 Environment: ${{ github.event.inputs.environment }}"
