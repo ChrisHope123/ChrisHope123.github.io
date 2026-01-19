@@ -187,13 +187,18 @@ if (contactForm) {
         if (successMessage) successMessage.classList.add('hidden');
         if (errorMessage) errorMessage.classList.add('hidden');
         
-        // Get form data
+        // Get form data and convert to JSON for proper UTF-8 encoding
         const formData = new FormData(contactForm);
+        const jsonData = Object.fromEntries(formData.entries());
         
         try {
             const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
             });
             
             const data = await response.json();
