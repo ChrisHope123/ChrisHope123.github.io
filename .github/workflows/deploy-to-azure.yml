@@ -55,14 +55,6 @@ jobs:
               --pattern "*.css" \
               --overwrite \
               --auth-mode login
-            
-            # Upload assets folder (images, etc.)
-            az storage blob upload-batch \
-              --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
-              --destination '$web/assets' \
-              --source ./assets \
-              --overwrite \
-              --auth-mode login
 
       - name: Deployment Summary
         run: |
