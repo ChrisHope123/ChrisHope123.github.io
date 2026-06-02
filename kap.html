@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAP palyazati leiras</title>
+    <meta name="description" content="KAP palyazati leiras PDF beagyazva">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="assets/images/logo.jpg">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- KAP Fixed Logo - Bottom Left -->
+    <a href="kap.html" target="_blank" rel="noopener noreferrer" class="fixed bottom-4 left-4 z-40 hover:scale-105 transition-transform duration-300" title="KAP palyazati leiras">
+        <img src="assets/images/KAP_infoblokk.jpg" alt="KAP infoblokk" class="w-56 md:w-72 h-auto rounded-lg">
+    </a>
+
+    <!-- EU Logo - Fixed Bottom Right -->
+    <a href="eu-tamogatas.html" class="fixed bottom-8 right-8 z-40 hover:scale-105 transition-transform duration-300 shadow-2xl" title="Europai Unios tamogatas">
+        <img src="assets/images/263679109_313090430706036_2792129829385999363_n.jpg" alt="EU Tamogatas" class="w-56 md:w-72 h-auto rounded-lg">
+    </a>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <a href="kap.html" target="_blank" rel="noopener noreferrer" class="absolute left-4 top-1/2 -translate-y-1/2 z-50 flex items-center hover:scale-105 transition-transform duration-300" title="KAP palyazati leiras">
+            <img src="assets/images/KAP.jpg" alt="KAP logo" class="h-12 md:h-14 w-auto">
+        </a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center h-20 justify-end pl-24">
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 mr-4">
+                    <a href="index.html" class="text-gray-700 hover:text-red-600 transition">Főoldal</a>
+                    <a href="egyedi-kartya.html" class="text-gray-700 hover:text-red-600 transition">Egyedi Kártya</a>
+                    <a href="viszonteladoknak.html" class="text-gray-700 hover:text-red-600 transition">Viszonteladóknak</a>
+                    <a href="index.html#rolunk" class="text-gray-700 hover:text-red-600 transition">Rólunk</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <img src="assets/images/logo.jpg" alt="Kvíz Játékkártya Kft." class="h-12 w-auto">
+                        <span class="text-xl font-bold text-red-600 hidden sm:inline">Kvíz Játékkártya</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+                    <h1 class="text-lg md:text-xl font-semibold text-gray-900">KAP pályázati leírás</h1>
+                    <a href="assets/images/palyazati_leiras.pdf" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-red-600 hover:text-red-700">
+                        Megnyitás új ablakban
+                    </a>
+                </div>
+                <iframe
+                    src="assets/images/palyazati_leiras.pdf"
+                    title="KAP pályázati leírás PDF"
+                    class="w-full h-[80vh] md:h-[85vh]"
+                ></iframe>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
