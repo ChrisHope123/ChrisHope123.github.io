@@ -47,12 +47,9 @@
 </head>
 <body class="bg-gray-50">
     
-    <!-- KAP Fixed Logos -->
-    <a href="assets/images/palyazati_leiras.pdf" target="_blank" rel="noopener noreferrer" class="fixed top-4 left-4 z-50 hover:scale-105 transition-transform duration-300" style="z-index: 60;" title="KAP palyazati leiras">
-        <img src="assets/images/KAP.png" alt="KAP logo" class="w-24 md:w-32 h-auto">
-    </a>
+    <!-- KAP Fixed Logo - Bottom Left -->
     <a href="assets/images/palyazati_leiras.pdf" target="_blank" rel="noopener noreferrer" class="fixed bottom-4 left-4 z-40 hover:scale-105 transition-transform duration-300" title="KAP palyazati leiras">
-        <img src="assets/images/KAP_infoblokk.png" alt="KAP infoblokk" class="w-32 md:w-40 h-auto">
+        <img src="assets/images/KAP_infoblokk.jpg" alt="KAP infoblokk" class="w-56 md:w-72 h-auto rounded-lg">
     </a>
     
     <!-- EU Logo - Fixed Bottom Right -->
@@ -63,30 +60,36 @@
     <!-- Navigation -->
     <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
+            <div class="flex justify-between items-center h-20">
+                <!-- KAP Logo -->
                 <div class="flex items-center">
-                    <a href="#" class="flex items-center space-x-2">
-                        <img src="assets/images/logo.jpg" alt="Kvíz Játékkártya Kft." class="h-12 w-auto">
-                        <span class="text-xl font-bold text-red-600 hidden sm:inline">Kvíz Játékkártya</span>
+                    <a href="assets/images/palyazati_leiras.pdf" target="_blank" rel="noopener noreferrer" class="flex items-center hover:scale-105 transition-transform duration-300 md:-ml-4" title="KAP palyazati leiras">
+                        <img src="assets/images/KAP.jpg" alt="KAP logo" class="h-12 md:h-14 w-auto">
                     </a>
                 </div>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-8 ml-auto mr-4">
                     <a href="#" class="text-gray-700 hover:text-red-600 transition">Főoldal</a>
                     <a href="egyedi-kartya.html" class="text-gray-700 hover:text-red-600 transition">Egyedi Kártya</a>
                     <a href="viszonteladoknak.html" class="text-gray-700 hover:text-red-600 transition">Viszonteladóknak</a>
                     <a href="#rolunk" class="text-gray-700 hover:text-red-600 transition">Rólunk</a>
                 </div>
                 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-700 hover:text-red-600 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                    </button>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="flex items-center space-x-2">
+                        <img src="assets/images/logo.jpg" alt="Kvíz Játékkártya Kft." class="h-12 w-auto">
+                        <span class="text-xl font-bold text-red-600 hidden sm:inline">Kvíz Játékkártya</span>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="text-gray-700 hover:text-red-600 focus:outline-none">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,7 +106,7 @@
     </nav>
     
     <!-- Hero Carousel Section -->
-    <section class="relative pt-16 overflow-hidden">
+    <section class="relative pt-20 overflow-hidden">
         <div class="carousel-container relative">
             <!-- Carousel Slides -->
             <div class="carousel-slides relative h-[400px] md:h-[500px] lg:h-[600px]">
