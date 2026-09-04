@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termékeink - Kvíz Játékkártya Kft.</title>
+    <meta name="description" content="Tekintse meg termékeinket.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="assets/images/logo.jpg">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- KAP Fixed Logo - Bottom Left -->
+    <a href="kap.html" class="fixed bottom-4 left-4 z-40 hover:scale-105 transition-transform duration-300" title="KAP palyazati leiras">
+        <img src="assets/images/KAP_infoblokk.jpg" alt="KAP infoblokk" class="w-56 md:w-72 h-auto rounded-lg">
+    </a>
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <a href="kap.html" class="absolute left-4 top-1/2 -translate-y-1/2 z-50 flex items-center hover:scale-105 transition-transform duration-300" title="KAP palyazati leiras">
+            <img src="assets/images/KAP.jpg" alt="KAP logo" class="h-12 md:h-14 w-auto">
+        </a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center h-20 justify-end pl-24">
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 mr-4">
+                    <a href="index.html" class="text-gray-700 hover:text-red-600 transition">Főoldal</a>
+                    <a href="termekeink.html" class="text-red-600 font-semibold">Termékeink</a>
+                    <a href="egyedi-kartya.html" class="text-gray-700 hover:text-red-600 transition">Egyedi Kártya</a>
+                    <a href="viszonteladoknak.html" class="text-gray-700 hover:text-red-600 transition">Viszonteladóknak</a>
+                    <a href="index.html#rolunk" class="text-gray-700 hover:text-red-600 transition">Rólunk</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <img src="assets/images/logo.jpg" alt="Kvíz Játékkártya Kft." class="h-12 w-auto">
+                        <span class="text-xl font-bold text-red-600 hidden sm:inline">Kvíz Játékkártya</span>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="text-gray-700 hover:text-red-600 focus:outline-none">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded">Főoldal</a>
+                <a href="termekeink.html" class="block px-3 py-2 text-red-600 font-semibold bg-red-50 rounded">Termékeink</a>
+                <a href="egyedi-kartya.html" class="block px-3 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded">Egyedi Kártya</a>
+                <a href="viszonteladoknak.html" class="block px-3 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded">Viszonteladóknak</a>
+                <a href="index.html#rolunk" class="block px-3 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded">Rólunk</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <img src="assets/images/kartyak.jpg" alt="Termékeink" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">🃏 Kvíz Játékkártya</h3>
+                    <p class="text-gray-400">
+                        Ami összehozza a társaságot
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Menü</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="termekeink.html" class="hover:text-white transition">Termékeink</a></li>
+                        <li><a href="egyedi-kartya.html" class="hover:text-white transition">Egyedi Kártya</a></li>
+                        <li><a href="viszonteladoknak.html" class="hover:text-white transition">Viszonteladóknak</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Információ</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html#rolunk" class="hover:text-white transition">Rólunk</a></li>
+                        <li><a href="index.html#kapcsolat" class="hover:text-white transition">Kapcsolat</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Kvíz Játékkártya Kft. Minden jog fenntartva.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
